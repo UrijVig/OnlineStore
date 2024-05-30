@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: REST_API_microservice
+  jpa:
+    hibernate:
+      ddl-auto: none

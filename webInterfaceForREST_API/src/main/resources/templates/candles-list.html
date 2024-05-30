@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${candles}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Candles</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="candle : ${candles}">
+                <td th:text="${candle.id}"></td>
+                <td th:text="${candle.name}"></td>
+                <td th:text="${candle.price}"></td>
+                <td><a th:href="@{candle-update/{id}(id=${candle.id})}">Edit</a></td>
+                <td><a th:href="@{candle-delete/{id}(id=${candle.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/candle-create">Create candle</a></p>
+</div>
+</body>
+</html>
