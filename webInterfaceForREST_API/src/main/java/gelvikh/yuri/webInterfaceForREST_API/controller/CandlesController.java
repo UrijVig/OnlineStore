@@ -22,12 +22,12 @@ public class CandlesController {
     public String findAll(Model model){
         List<Candle> candles = dbManagementService.getAllCandles();
         model.addAttribute("candles", candles);
-        return "candles-list";
+        return "admin/candles-list";
     }
 
     @GetMapping("/candle-create")
     public String createCandleForm(Candle candle){
-        return "Candle-create";
+        return "admin/Candle-create";
     }
 
     @PostMapping("/candle-create")
@@ -40,7 +40,7 @@ public class CandlesController {
     public String updateCandleForm(@PathVariable Long id, Model model) {
         Candle candle = dbManagementService.getCandleById(id);
         model.addAttribute("candle", candle);
-        return "candle-update";
+        return "admin/candle-update";
     }
     @PostMapping("/candle-update")
     public String updateCandleById(Candle candle) {
