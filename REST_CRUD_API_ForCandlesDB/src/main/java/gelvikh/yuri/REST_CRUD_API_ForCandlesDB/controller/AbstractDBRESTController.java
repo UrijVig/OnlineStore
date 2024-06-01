@@ -1,6 +1,5 @@
 package gelvikh.yuri.REST_CRUD_API_ForCandlesDB.controller;
 
-import gelvikh.yuri.REST_CRUD_API_ForCandlesDB.model.Candle;
 import gelvikh.yuri.REST_CRUD_API_ForCandlesDB.service.AbstractDBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ public abstract class AbstractDBRESTController<T> {
     protected final AbstractDBService<T> service;
 
     @PostMapping
-    public ResponseEntity<T> createProduct(@RequestBody T t){
+    public ResponseEntity<T> createProduct( @RequestBody T t){
         return new ResponseEntity<>(service.createProduct(t), HttpStatus.CREATED);
     }
 

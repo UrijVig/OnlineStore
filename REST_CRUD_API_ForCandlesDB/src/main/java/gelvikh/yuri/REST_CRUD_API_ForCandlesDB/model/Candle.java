@@ -29,5 +29,5 @@ public class Candle {
     @Column
     private Integer amount = 0;
     @Column(nullable = false)
-    private Float price = 1000F;
+    private Float price;
 }

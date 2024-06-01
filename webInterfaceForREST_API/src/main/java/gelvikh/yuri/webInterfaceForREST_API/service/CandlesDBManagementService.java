@@ -43,6 +43,10 @@ public class CandlesDBManagementService {
         ResponseEntity<Candle> responseEntity = template.getForEntity(CANDLES_API+"/findById/" + id, Candle.class);
         return responseEntity.getBody();
     }
+    public Candle getCandleByName(String name){
+        ResponseEntity<Candle> responseEntity = template.getForEntity(CANDLES_API+"/findByName/" + name, Candle.class);
+        return responseEntity.getBody();
+    }
     public void deleteCandleById(Long id){
         ResponseEntity<Void> responseEntity = template.exchange(CANDLES_API + "/" + id, HttpMethod.DELETE, null, Void.class);
     }

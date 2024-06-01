@@ -26,5 +26,5 @@ CREATE TABLE candles (
     wax_id INTEGER REFERENCES wax(id),
     image_link VARCHAR(255) DEFAULT 'coming soon',
     amount INTEGER DEFAULT 0,
-    price float NOT NULL DEFAULT 1000
+    price float NOT NULL
 );

@@ -24,6 +24,9 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>Description</th>
+                            <th>Candlestick</th>
+                            <th>Flavoring</th>
+                            <th>Wax</th>
                             <th>Amount</th>
                             <th>Price</th>
                         </tr>
@@ -33,6 +36,9 @@
                             <td th:text="${candle.id}"></td>
                             <td th:text="${candle.name}"></td>
                             <td th:text="${candle.description}"></td>
+                            <td th:text="${candle.candlestick}"></td>
+                            <td th:text="${candle.flavoring}"></td>
+                            <td th:text="${candle.wax}"></td>
                             <td th:text="${candle.amount}"></td>
                             <td th:text="${candle.price}"></td>
                             <td><a th:href="@{candle-update/{id}(id=${candle.id})}">Редактировать</a></td>
