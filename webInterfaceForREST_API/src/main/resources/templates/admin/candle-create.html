@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Create Candle</title>
+</head>
+<body>
+    <div class="header center">
+        <div class="main_menu">
+            <a href="/candles" class="Home_Page">Главная страница</a>
+            <a href="/candle-create" class="Page">Добавить свечу</a>
+        </div>
+    </div>
+    <div class="content center">
+        <div class="content_form">
+            <form action="#" th:action="@{/candle-create}" th:object="${candle}" method="post">
+                <label for="name">Name</label>
+                <input type="text" th:field="*{name}" id="name" placeholder="Name"><br/>
+                <label for="description">Description</label>
+                <input type="text" th:field="*{description}" id="description" placeholder="Description"><br/>
+                <label for="amount">Amount</label>
+                <input type="number" th:field="*{amount}" id="amount" placeholder="Amount"><br/>
+                <label for="price">Price</label>
+                <input type="number" th:field="*{price}" id="price" placeholder="Price"><br/>
+                <input type="submit" value="Create Candle">
+            </form>
+        </div>
+    </div>
+    <div class="footer center">
+
+    </div>
+
+
+</body>
+</html>

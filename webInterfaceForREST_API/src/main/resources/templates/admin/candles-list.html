@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Candles</title>
+</head>
+<body>
+    <div class="header center">
+        <div class="main_menu">
+            <a href="/candles" class="Home_Page">Главная страница</a>
+            <a href="/candle-create" class="Page">Добавить свечу</a>
+        </div>
+    </div>
+    <div class="content center">
+        <div class="content_list">
+            <div th:switch="${candles}">
+                <h2 th:case="null">No users found!</h2>
+                <div th:case="*">
+                    <h2>Candles</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="candle : ${candles}">
+                            <td th:text="${candle.id}"></td>
+                            <td th:text="${candle.name}"></td>
+                            <td th:text="${candle.description}"></td>
+                            <td th:text="${candle.amount}"></td>
+                            <td th:text="${candle.price}"></td>
+                            <td><a th:href="@{candle-update/{id}(id=${candle.id})}">Редактировать</a></td>
+                            <td><a th:href="@{candle-delete/{id}(id=${candle.id})}">Удалить</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><a href="/candle-create">Create candle</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer center">
+
+    </div>
+</body>
+</html>
