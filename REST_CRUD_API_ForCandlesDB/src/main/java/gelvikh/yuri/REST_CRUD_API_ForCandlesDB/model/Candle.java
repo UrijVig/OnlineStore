@@ -10,13 +10,24 @@ import lombok.NoArgsConstructor;
 public class Candle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long id;
     @Column(nullable = false)
     private String name;
     @Column
-    private String description;
+    private String description = "coming soon";
+    @ManyToOne
+    @JoinColumn(name = "candlestick_id")
+    private Candlestick candlestick;
+    @ManyToOne
+    @JoinColumn(name = "flavoring_id")
+    private Flavoring flavoring;
+    @ManyToOne
+    @JoinColumn(name = "wax_id")
+    private Wax wax;
     @Column
-    private Integer amount;
+    private String imageLink = "coming soon";
+    @Column
+    private Integer amount = 0;
     @Column(nullable = false)
-    private Float price;
+    private Float price = 1000F;
 }
