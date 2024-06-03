@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
 import gelvikh.yuri.webInterfaceForREST_API.model.Candlestick;
-import gelvikh.yuri.webInterfaceForREST_API.service.CandlesticksDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.service.impl.CandlesticksDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class StringToCandlestickConverter implements Converter<String, Candlesti
     @Override
     public Candlestick convert(String source) {
         Long id = Long.valueOf(source);
-        return candlesticksDBManagementService.getCandlestickById(id);
+        return candlesticksDBManagementService.getProductById(id);
     }
 }
 

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link th:href="@{style.css}" rel="stylesheet" />
+    <link th:href="@{/style.css}" rel="stylesheet" />
     <meta charset="UTF-8">
-    <title>Create Candle</title>
+    <title>La Vela</title>
 </head>
 <body>
     <div class="header center">
-        <div class="main_menu">
-            <a href="/candles" class="Home_Page">Главная страница</a>
-            <a href="/candle-create" class="Page">Добавить свечу</a>
-        </div>
+        <div class="main_menu" th:insert="~{fragments :: header}"></div>
     </div>
     <div class="content center">
         <div class="content_form">
-            <form action="#" th:action="@{/candle-create}" th:object="${candle}" method="post">
+            <form action="#" th:action="@{/candle/update}" th:object="${candle}" method="post">
+                <label for="id">ID</label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
+                <br/>
                 <label for="name">Name</label>
                 <input type="text" th:field="*{name}" id="name" placeholder="Name">
                 <br/>
@@ -22,23 +22,20 @@
                 <input type="text" th:field="*{description}" id="description" placeholder="Description">
                 <br/>
                 <label for="candlestick">Candlestick</label>
-<!--                <input type="text" th:field="*{candlestick}" id="candlestick" placeholder="Candlestick">-->
                 <select th:field="*{candlestick}" id="candlestick">
-                    <option value="0">select option</option>
+                    <option th:value="${candle.candlestick.id}" th:text="${candle.candlestick.name}"></option>
                     <option th:each="c : ${candlesticks}" th:value="${c.id}" th:text="${c.name}"></option>
                 </select>
                 <br/>
                 <label for="flavoring">Flavoring</label>
-<!--                <input type="text" th:field="*{flavoring}" id="flavoring" placeholder="Flavoring">-->
                 <select th:field="*{flavoring}" id="flavoring">
-                    <option value="0">select option</option>
+                    <option th:value="${candle.flavoring.id}" th:text="${candle.flavoring.name}"></option>
                     <option th:each="f : ${flavorings}" th:value="${f.id}" th:text="${f.name}"></option>
                 </select>
                 <br/>
                 <label for="wax">Wax</label>
-<!--                <input type="text" th:field="*{wax}" id="wax" placeholder="Wax">-->
                 <select th:field="*{wax}" id="wax">
-                    <option value="0">select option</option>
+                    <option th:value="${candle.wax.id}" th:text="${candle.wax.name}"></option>
                     <option th:each="w : ${waxes}" th:value="${w.id}" th:text="${w.name}"></option>
                 </select>
                 <br/>
@@ -48,14 +45,12 @@
                 <label for="price">Price</label>
                 <input type="number" th:field="*{price}" id="price" placeholder="Price">
                 <br/>
-                <input type="submit" value="Create Candle">
+                <input type="submit" value="Update Candle">
             </form>
         </div>
     </div>
     <div class="footer center">
 
     </div>
-
-
 </body>
 </html>

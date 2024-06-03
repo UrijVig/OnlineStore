@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+    <div class="header center">
+        <div class="main_menu" th:insert="~{fragments :: header}"></div>
+    </div>
+    <div class="content center">
+        <div class="content_list">
+            <div th:switch="${products}">
+                <h2 th:case="null">No users found!</h2>
+                <div th:case="*">
+                    <h2>Flavorings</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product : ${products}">
+                            <td th:text="${product.id}"></td>
+                            <td th:text="${product.name}"></td>
+                            <td th:text="${product.description}"></td>
+                            <td><a th:href="@{update/{id}(id=${product.id})}">Редактировать</a></td>
+                            <td><a th:href="@{delete/{id}(id=${product.id})}">Удалить</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><a href="/flavoring/create">Create flavoring</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer center">
+
+    </div>
+</body>
+</html>

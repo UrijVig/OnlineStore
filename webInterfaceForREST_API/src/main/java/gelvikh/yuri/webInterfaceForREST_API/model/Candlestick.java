@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class Candlestick {
     private Long id;
     private String name;
+    private Integer volume;
+    private String material;
     private String description = "coming soon";
     private boolean lid = false;
 }

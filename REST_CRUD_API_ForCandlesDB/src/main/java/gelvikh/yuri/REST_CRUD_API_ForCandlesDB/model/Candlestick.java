@@ -14,6 +14,10 @@ public class Candlestick {
     @Column(nullable = false)
     private String name;
     @Column
+    private Integer volume;
+    @Column
+    private String material;
+    @Column
     private String description = "coming soon";
     @Column
     private boolean lid = false;

@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
 import gelvikh.yuri.webInterfaceForREST_API.model.Flavoring;
-import gelvikh.yuri.webInterfaceForREST_API.service.FlavoringDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.service.impl.FlavoringDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +18,6 @@ public class StringToFlavoringConverter implements Converter<String, Flavoring> 
     @Override
     public Flavoring convert(String source) {
         Long id = Long.valueOf(source);
-        return flavoringDBManagementService.getFlavoringById(id);
+        return flavoringDBManagementService.getProductById(id);
     }
 }

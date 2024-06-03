@@ -20,6 +20,10 @@ public class CandleCRUDService  extends AbstractDBService<Candle> {
         oldProduct.setDescription(product.getDescription());
         oldProduct.setPrice(product.getPrice());
         oldProduct.setName(product.getName());
+        oldProduct.setCandlestick(product.getCandlestick());
+        oldProduct.setFlavoring(product.getFlavoring());
+        oldProduct.setWax(product.getWax());
+        oldProduct.setImageLink(product.getImageLink());
 
         return dbRepository.save(oldProduct);
     }

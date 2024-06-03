@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+    <div class="header center">
+        <div class="main_menu" th:insert="~{fragments :: header}"></div>
+    </div>
+    <div class="content center">
+        <div class="content_form">
+            <form action="#" th:action="@{/candle/create}" th:object="${candle}" method="post">
+                <label for="name">Name</label>
+                <input type="text" th:field="*{name}" id="name" placeholder="Name">
+                <br/>
+                <label for="description">Description</label>
+                <input type="text" th:field="*{description}" id="description" placeholder="Description">
+                <br/>
+                <label for="candlestick">Candlestick</label>
+                <select th:field="*{candlestick}" id="candlestick">
+                    <option value="0">select option</option>
+                    <option th:each="c : ${candlesticks}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+                <br/>
+                <label for="flavoring">Flavoring</label>
+                <select th:field="*{flavoring}" id="flavoring">
+                    <option value="0">select option</option>
+                    <option th:each="f : ${flavorings}" th:value="${f.id}" th:text="${f.name}"></option>
+                </select>
+                <br/>
+                <label for="wax">Wax</label>
+                <select th:field="*{wax}" id="wax">
+                    <option value="0">select option</option>
+                    <option th:each="w : ${waxes}" th:value="${w.id}" th:text="${w.name}"></option>
+                </select>
+                <br/>
+                <label for="amount">Amount</label>
+                <input type="number" th:field="*{amount}" id="amount" placeholder="Amount">
+                <br/>
+                <label for="price">Price</label>
+                <input type="number" th:field="*{price}" id="price" placeholder="Price">
+                <br/>
+                <input type="submit" value="Create Candle">
+            </form>
+        </div>
+    </div>
+    <div class="footer center">
+
+    </div>
+
+
+</body>
+</html>

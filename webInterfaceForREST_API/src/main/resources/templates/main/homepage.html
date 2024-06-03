@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link th:href="@{style.css}" rel="stylesheet" />
+    <link th:href="@{/style.css}" rel="stylesheet" />
     <meta charset="UTF-8">
-    <title>Homepage</title>
+    <title>La Vela</title>
 </head>
 <body>
 <div class="header center">
-    <div class="main_menu">
-        <a href="/homepage" class="Home_Page">Главная страница</a>
-        <a href="/personal_area" class="Page">Добавить свечу</a>
-    </div>
+    <div class="main_menu" th:insert="~{fragments:: header}"></div>
 </div>
 <div class="content center">
-    <div class="content_form">
-        <form action="#" th:action="@{/candle-create}" th:object="${candle}" method="post">
-            <label for="name">Name</label>
-            <input type="text" th:field="*{name}" id="name" placeholder="Name"><br/>
-            <label for="description">Description</label>
-            <input type="text" th:field="*{description}" id="description" placeholder="Description"><br/>
-            <label for="amount">Amount</label>
-            <input type="number" th:field="*{amount}" id="amount" placeholder="Amount"><br/>
-            <label for="price">Price</label>
-            <input type="number" th:field="*{price}" id="price" placeholder="Price"><br/>
-            <input type="submit" value="Create Candle">
-        </form>
+    <div class="goods">
+        <div class="product" th:each="candle : ${candles}" >
+            <a th:href="@{/candle/homepage/{id} (id = ${candle.id})}">
+                <img class="product_img" th:src="${candle.imageLink}" alt="${candle.id}" >
+            </a>
+            <div class="product_text">
+                <h3 class="product_title"  th:text="${candle.name}"></h3>
+                <p class="product_description" th:text="${candle.description}"></p>
+                <!--            <p class="product_description" th:text="${candle.description}"></p>-->
+                <h3 class="product_price" th:text="'$' + ${candle.price}"></h3>
+            </div>
+        </div>
     </div>
 </div>
 <div class="footer center">

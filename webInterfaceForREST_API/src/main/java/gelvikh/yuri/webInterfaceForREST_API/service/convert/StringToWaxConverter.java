@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
 import gelvikh.yuri.webInterfaceForREST_API.model.Wax;
-import gelvikh.yuri.webInterfaceForREST_API.service.WaxDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.service.impl.WaxDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +18,6 @@ public class StringToWaxConverter implements Converter<String, Wax> {
     @Override
     public Wax convert(String source) {
         Long id = Long.valueOf(source);
-        return waxDBManagementService.getWaxById(id);
+        return waxDBManagementService.getProductById(id);
     }
 }

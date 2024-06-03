@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+<div class="header center">
+    <div class="main_menu" th:insert="~{fragments:: header}"></div>
+</div>
+<div class="content2 center">
+    <div class="control_menu">
+        <a href="/candle/findAll">Редактирование базы свечей</a>
+        <a href="/candlestick/findAll">Редактирование базы подсвечников</a>
+        <a href="/flavoring/findAll">Редактирование базы ароматов</a>
+        <a href="/wax/findAll">Редактирование базы воска</a>
+    </div>
+</div>
+<div class="footer center">
+
+</div>
+
+</body>
+</html>

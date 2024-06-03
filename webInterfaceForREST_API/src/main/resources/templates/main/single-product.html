@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+<div class="header center">
+    <div class="main_menu" th:insert="~{fragments:: header}"></div>
+</div>
+<div class="content2 center">
+    <div class="single_product">
+        <img class="single_product_img" th:src="${candle.imageLink}" alt="${candle.id}" >
+        <div class="product_text">
+            <h3 class="product_title"  th:text="${candle.name}"></h3>
+            <p class="product_description" th:text="${candle.description}"></p>
+            <h3 class="volume" th:text="'Объём = ' + ${candle.candlestick.volume}"></h3>
+            <h3 class="product_price" th:text="'$' + ${candle.price}"></h3>
+        </div>
+    </div>
+</div>
+<div class="footer center">
+
+</div>
+
+</body>
+</html>
