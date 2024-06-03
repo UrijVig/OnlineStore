@@ -11,7 +11,7 @@ INSERT INTO flavoring (name) values
 ('granat');
 
 INSERT INTO candles (name, candlestick_id, flavoring_id, wax_id, price) VALUES
-('Lavanda',1,1,1, 5.6),
-('Vanila',1,1,1, 2.6),
-('Rose',1,1,1, 1.6),
-('Pancake',1,1,1, 0.6);
+('Lavanda',1,1,1, 5.7),
+('Vanila',1,1,1, 2.4),
+('Rose',1,1,1, 1.1),
+('Pancake',1,1,1, 0.5);

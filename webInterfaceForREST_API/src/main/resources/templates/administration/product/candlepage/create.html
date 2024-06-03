@@ -36,6 +36,9 @@
                     <option th:each="w : ${waxes}" th:value="${w.id}" th:text="${w.name}"></option>
                 </select>
                 <br/>
+                <label for="imageLink">ImageLink</label>
+                <input type="text" th:field="*{imageLink}" id="imageLink" placeholder="ImageLink">
+                <br/>
                 <label for="amount">Amount</label>
                 <input type="number" th:field="*{amount}" id="amount" placeholder="Amount">
                 <br/>
