@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
-import gelvikh.yuri.webInterfaceForREST_API.model.Wax;
-import gelvikh.yuri.webInterfaceForREST_API.service.impl.WaxDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.controller.DBAPIClient.payload.Wax;
+import gelvikh.yuri.webInterfaceForREST_API.service.DBAPIClient.impl.WaxDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

@@ -10,8 +10,27 @@
     <div class="main_menu" th:insert="~{fragments:: header}"></div>
 </div>
 <div class="content2 center">
+
+    <h2>Your Shopping Cart</h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="product : ${cart}">
+            <td th:text="${product.key.name}"></td>
+            <td th:text="${product.value}"></td>
+            <td th:text="${product.key.price * product.value}"></td>
+            <td><a th:href="@{delete/{id}(id=${product.key.id})}">Удалить</a></td>
+        </tr>
+
+        <h3>Total: <span th:text="${totalPrice}"> </span></h3>
+    </table>
+
     <div class="control_menu">
-        <р1>USER PAGE COMING SOON</р1>
+        <a href="/user/create_order" class="Page">Оформить заказ</a>
         <a href="/logout" class="Page">разлогиниться</a>
     </div>
 </div>

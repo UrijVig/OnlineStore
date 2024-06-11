@@ -1,0 +1,18 @@
+CANDLES_API: http://localhost:8765/candles
+CANDLESTICK_API: http://localhost:8765/candlestick
+FLAVORING_API: http://localhost:8765/flavoring
+WAX_API: http://localhost:8765/wax
+ORDERS_API: http://localhost:8765/orders
+
+server:
+  address: 192.168.1.102
+
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.1.104:5432/users
+    username: restuser
+    password: restpass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update

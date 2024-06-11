@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+    <div class="header center">
+        <div class="main_menu" th:insert="~{fragments :: header}"></div>
+    </div>
+    <div class="content center">
+        <div class="content_form">
+            <form action="#" th:action="@{/orders/update}" th:object="${product}" method="post">
+                <label for="id">ID</label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+                <br/>
+                <label for="username">Username</label>
+                <input readonly type="text" th:field="*{username}" id="username" placeholder="Username">
+                <br/>
+                <label for="comment">Comment</label>
+                <input readonly type="text" th:field="*{comment}" id="comment" placeholder="Comment">
+                <br/>
+                <label for="price">Price</label>
+                <input readonly type="number" th:field="*{price}" id="price" placeholder="Price">
+                <br/>
+                <label for="status">Status</label>
+                <input type="text" th:field="*{status}" id="status" placeholder="Status">
+                <br/>
+                <label>Products</label>
+                <div th:each="prod, stat : *{products}">
+                    <label>Товар</label>
+                    <input readonly type="text" th:field="*{products[__${stat.index}__].candle.name}">
+                    <label>Количество</label>
+                    <input readonly type="number" th:field="*{products[__${stat.index}__].quantity}">
+                </div>
+                <br/>
+                <input type="submit" value="Update Flavoring">
+            </form>
+        </div>
+    </div>
+    <div class="footer center">
+
+    </div>
+</body>
+</html>

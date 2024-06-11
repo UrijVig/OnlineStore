@@ -1,8 +1,10 @@
 package gelvikh.yuri.REST_CRUD_API_ForCandlesDB.service;
 
 import gelvikh.yuri.REST_CRUD_API_ForCandlesDB.repository.AbstractDBRepository;
+import gelvikh.yuri.REST_CRUD_API_ForCandlesDB.service.excwprions.ShortageOfGoodsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,7 +13,8 @@ import java.util.List;
 public abstract class AbstractDBService<T> {
     protected final AbstractDBRepository<T> dbRepository;
 
-    public T createProduct(T t){
+    @Transactional
+    public T createProduct(T t) throws ShortageOfGoodsException {
         return dbRepository.save(t);
     }
 
@@ -27,6 +30,7 @@ public abstract class AbstractDBService<T> {
     public T findProductByName(String name){
         return dbRepository.findByName(name).orElseThrow();
     }
+    @Transactional
     public void deleteProductById(Long id){
         dbRepository.deleteById(id);
     }

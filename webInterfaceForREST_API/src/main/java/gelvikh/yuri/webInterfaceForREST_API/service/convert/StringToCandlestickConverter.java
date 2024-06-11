@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
-import gelvikh.yuri.webInterfaceForREST_API.model.Candlestick;
-import gelvikh.yuri.webInterfaceForREST_API.service.impl.CandlesticksDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.controller.DBAPIClient.payload.Candlestick;
+import gelvikh.yuri.webInterfaceForREST_API.service.DBAPIClient.impl.CandlesticksDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

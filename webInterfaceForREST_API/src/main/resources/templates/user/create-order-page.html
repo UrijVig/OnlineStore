@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>La Vela</title>
+</head>
+<body>
+<div class="header center">
+    <div class="main_menu" th:insert="~{fragments:: header}"></div>
+</div>
+<div class="content2 center">
+    <form action="#" th:action="@{/user/order}" th:object="${order}" method="post">
+        <input type="hidden"  th:value="${user}" name="username">
+        <label>
+            <textarea th:field="*{comment}" placeholder="Comment"></textarea>
+        </label>
+        <br/>
+        <input type="hidden"  th:value="NEW" name="status">
+        <br/>
+        <h2>Your Shopping Cart</h2>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="product : ${cart}">
+                <td th:text="${product.key.name}"></td>
+                <td th:text="${product.value}"></td>
+                <td th:text="${product.key.price * product.value}"></td>
+                <td><a th:href="@{delete/{id}(id=${product.key.id})}">Удалить</a></td>
+            </tr>
+            <h3>Total: <span th:text="${totalPrice}"> </span></h3>
+        </table>
+        <!-- button to submit form... -->
+        <button type="submit">Submit</button>
+    </form>
+    <div class="control_menu">
+        <a href="/user/personal_area" class="Page">Вернуться к покупкам</a>
+    </div>
+</div>
+<div class="footer center">
+
+</div>
+
+</body>
+</html>

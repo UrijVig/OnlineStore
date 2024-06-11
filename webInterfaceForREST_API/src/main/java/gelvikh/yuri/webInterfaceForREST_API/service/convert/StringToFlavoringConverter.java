@@ -1,7 +1,7 @@
 package gelvikh.yuri.webInterfaceForREST_API.service.convert;
 
-import gelvikh.yuri.webInterfaceForREST_API.model.Flavoring;
-import gelvikh.yuri.webInterfaceForREST_API.service.impl.FlavoringDBManagementService;
+import gelvikh.yuri.webInterfaceForREST_API.controller.DBAPIClient.payload.Flavoring;
+import gelvikh.yuri.webInterfaceForREST_API.service.DBAPIClient.impl.FlavoringDBManagementService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

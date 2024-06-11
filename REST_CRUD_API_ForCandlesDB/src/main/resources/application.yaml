@@ -3,7 +3,12 @@ server:
 
 spring:
   application:
-    name: REST_API_microservice
+    name: REST_Products_DB_API
+  datasource:
+    url: jdbc:postgresql://192.168.1.104:5432/product
+    username: restuser
+    password: restpass
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
