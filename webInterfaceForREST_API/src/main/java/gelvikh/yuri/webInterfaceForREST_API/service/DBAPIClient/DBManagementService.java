@@ -16,3 +16,4 @@ public interface DBManagementService<T> {
     public T getProductByName(String name);
     public void deleteProductById(Long id);
 }
+

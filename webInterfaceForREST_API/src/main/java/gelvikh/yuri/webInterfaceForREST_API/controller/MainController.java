@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping
 @RequiredArgsConstructor
-public class mainController {
+public class MainController {
 
     private final UserManagerService userManagerService;
     @GetMapping("/admin/personal_area")

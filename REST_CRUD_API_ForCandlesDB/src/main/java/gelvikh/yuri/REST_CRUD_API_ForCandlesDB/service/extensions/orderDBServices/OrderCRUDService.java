@@ -16,7 +16,8 @@ import java.util.List;
 public class OrderCRUDService extends AbstractDBService<Order> {
     private final CandleCRUDService candleCRUDService;
 
-    public OrderCRUDService(OrderDBRepository dbRepository, CandleCRUDService candleCRUDService) {
+    public OrderCRUDService(OrderDBRepository dbRepository
+            , CandleCRUDService candleCRUDService) {
         super(dbRepository);
         this.candleCRUDService = candleCRUDService;
     }
@@ -29,10 +30,12 @@ public class OrderCRUDService extends AbstractDBService<Order> {
         for (OrderProduct orderProduct : products) {
             Candle candle = orderProduct.getCandle();
             if (orderProduct.getQuantity() > candle.getAmount()){
-                throw new ShortageOfGoodsException("Недостаточно товаров %s в наличии".formatted(candle.getName()));
+                throw new ShortageOfGoodsException("Недостаточно товаров %s в наличии"
+                        .formatted(candle.getName()));
             }
             else {
-                candleCRUDService.updateProductById(candle.getId(), candle.getAmount() - orderProduct.getQuantity());
+                candleCRUDService.updateProductById(candle.getId(),
+                        candle.getAmount() - orderProduct.getQuantity());
             }
         }
         return dbRepository.save(order);

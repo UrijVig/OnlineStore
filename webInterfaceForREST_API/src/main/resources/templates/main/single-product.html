@@ -19,7 +19,6 @@
             <h3 class="volume" th:text="'Объём = ' + ${candle.candlestick.volume}"></h3>
             <h3 class="product_price" th:text="'$' + ${candle.price}"></h3>
         </div>
-
         <form th:action="@{/user/cart/add}" method="post">
             <input type="hidden" name="candleId" th:value="${candle.id}">
             <input type="number" name="quantity" value="1">
@@ -28,8 +27,6 @@
     </div>
 </div>
 <div class="footer center">
-
 </div>
-
 </body>
 </html>

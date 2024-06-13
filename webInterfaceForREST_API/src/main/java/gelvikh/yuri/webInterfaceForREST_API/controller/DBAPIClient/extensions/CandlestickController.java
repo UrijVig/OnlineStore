@@ -21,3 +21,4 @@ public class CandlestickController extends AbstractWebController<Candlestick> {
         return super.createProductForm(candlestick, model);
     }
 }
+
